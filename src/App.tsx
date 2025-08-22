@@ -25,7 +25,7 @@ const App: React.FC = () => {
     { id: 'p3', type: 'scale', question: 'In the next 12 months, how likely are you to invest in automating more back-office work?', pillar: 'process' },
     { id: 'c1', type: 'scale', question: 'How personalised is the marketing content customers receive?', pillar: 'customer' },
     { id: 'c2', type: 'scale', question: 'Are you using AI for your customer-support channels?', pillar: 'customer' },
-    { id: 'c3', type: 'scale', question: 'Priority to improve CX with AI in the next year?', pillar: 'customer' },
+    { id: 'c3', type: 'scale', question: 'Priority to improve Customer Experience (CX) with AI in the next year?', pillar: 'customer' },
     { id: 'r1', type: 'scale', question: 'How much do you rely on data/AI to spot upsell or cross-sell opportunities?', pillar: 'revenue' },
     { id: 'r2', type: 'scale', question: 'Pricing decisions today are...?', pillar: 'revenue' },
     { id: 'r3', type: 'scale', question: 'Urgency to use AI for new revenue streams in the next 12 months?', pillar: 'revenue' }
