@@ -28,7 +28,7 @@ const App: React.FC = () => {
     { id: 'c3', type: 'scale', question: 'Priority to improve Customer Experience (CX) with AI in the next year?', pillar: 'customer' },
     { id: 'r1', type: 'scale', question: 'How much do you rely on data/AI to spot upsell or cross-sell opportunities?', pillar: 'revenue' },
     { id: 'r2', type: 'scale', question: 'Today I am using AI for pricing decisions:', pillar: 'revenue' },
-    { id: 'r3', type: 'scale', question: 'Urgency to use AI for new revenue streams in the next 12 months?', pillar: 'revenue' }
+    { id: 'r3', type: 'scale', question: 'I have a need to use AI for new revenue streams in the next 12 months', pillar: 'revenue' }
   ];
 
   const scaleLabels = ['Not at all', 'Somewhat', 'Moderately', 'Very much', 'Completely'];
