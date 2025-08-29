@@ -4,11 +4,13 @@ import { ChevronRight, ChevronLeft, CheckCircle, Gauge, Calendar, BarChart3, Use
 import { QuizData, QuizAnswer, Question } from './types/quiz';
 import { calculateQuizResults, generateRecommendations } from './services/quizService';
 import { getPerformanceLevelColor } from './data/industryBenchmarks';
+import { LeadCaptureForm } from './components/LeadCaptureForm';
+
 type DesignVersion = 'minimal' | 'professional' | 'modern';
 
 const App: React.FC = () => {
   const [currentVersion, setCurrentVersion] = useState<DesignVersion>('minimal');
-  const [currentPage, setCurrentPage] = useState<'home' | 'quiz' | 'results'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'quiz' | 'lead-capture' | 'results'>('home');
   const [quizStep, setQuizStep] = useState(0);
   const [quizData, setQuizData] = useState<QuizData>({
     industry: '',
@@ -104,7 +106,7 @@ const App: React.FC = () => {
       // Calculate results when quiz is completed
       const results = calculateQuizResults(quizData);
       setQuizResults(results);
-      setCurrentPage('results');
+      setCurrentPage('lead-capture');
     }
   };
 
@@ -776,11 +778,28 @@ const App: React.FC = () => {
     );
   };
 
+  const LeadCapturePage = () => (
+    <div className={`min-h-screen ${theme.bg} ${theme.text} ${theme.font}`}>
+      <Header />
+      
+      <div className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          <LeadCaptureForm 
+            quizResults={quizResults!}
+            onSuccess={() => setCurrentPage('results')}
+            theme={theme}
+          />
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <VersionSelector />
       {currentPage === 'home' && <LandingPage />}
       {currentPage === 'quiz' && <QuizPage />}
+      {currentPage === 'lead-capture' && <LeadCapturePage />}
       {currentPage === 'results' && <ResultsPage />}
     </>
   );
